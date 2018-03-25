@@ -1,0 +1,28 @@
+$TTL    604800
+@       IN      SOA     ns1.dns-01.online. admin.dns-01.online. (
+                              {{ serial }}         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+
+; Name servers
+dns-01.online.    IN      NS      ns1.dns-01.online.
+dns-01.online.    IN      NS      ns2.dns-01.online.
+dns-01.online.    IN      NS      ns3.dns-01.online.
+
+; A records for name servers
+ns1             IN      A       94.130.180.20
+ns2             IN      A       78.46.190.69
+ns3             IN      A       94.130.187.16
+
+; Other A records
+@               IN      A       94.130.180.20
+www             IN      A       94.130.180.20
+api             IN      A       94.130.180.20
+
+; dns-01 validation TXT records
+{% for record in records %}
+{{ record.name }}  300  IN  TXT    "{{ record.token }}"
+{% endfor %}

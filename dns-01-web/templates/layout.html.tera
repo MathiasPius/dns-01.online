@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="/static/min.css" rel="stylesheet" type="text/css">
+
+    {% block head %}
+    <title>{% block title %}{% endblock title %} - dns-01.online</title>
+    {% endblock head %}
+</head>
+<body>
+    <header class="sticky">
+        <nav class="nav">
+			<div class="container">
+				<a class="pagename current" href="/">dns-01.online</a>
+                {% if username %}
+                    <a href="/overview"><b>{{username}}</b></a>
+                {% endif %}
+				<a href="/about">About</a>
+                {% if username %}
+                    <a href="/logout">Logout</a>
+                {% else %}
+                    <a href="/register">Register</a>
+                    <a href="/login">Login</a>
+                {% endif %}
+			</div>
+		</nav>
+    <header>
+    
+    <main>
+        <div class="container" id="content">
+            {% block content %}{% endblock content %}
+        </div>
+    </main>
+    <footer style="position: absolute; bottom: 0; left: 20px;">
+        <small>
+            {% block footer %}
+            &copy; Copyright {{ year }} by Mathias Pius
+            {% endblock footer %}
+        </p>
+    </footer>
+</body>
+</html>

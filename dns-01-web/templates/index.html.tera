@@ -1,0 +1,8 @@
+{% extends "layout" %}
+{% block title %}Index{% endblock title %}
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+{% block content %}
+    <h1>Index</h1>
+{% endblock content %}

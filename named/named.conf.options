@@ -1,0 +1,18 @@
+options {
+        directory "/var/cache/bind";
+        recursion no;
+        allow-transfer { none; };
+
+        // Put these files in folders we know are writable
+        dump-file "/var/cache/bind/cache_dump.db";
+        statistics-file "/var/cache/bind/named_stats.txt";
+        memstatistics-file "/var/cache/bind/named_mem_stats.txt";
+
+        dnssec-validation auto;
+        auth-nxdomain no;    # conform to RFC1035
+
+        listen-on { any; };
+        listen-on-v6 { any; };
+};
+
+

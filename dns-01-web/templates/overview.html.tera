@@ -1,0 +1,31 @@
+{% extends "layout" %}
+{% block title %}Overview{% endblock title %}
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+{% block content %}
+    <h1>Overview for {{username}}</h1>
+    <label for="apikey">API Key</label>
+    <input type="text" name="apikey" readonly value="{{ apikey }}" />
+
+    {% if tokens %}
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Token</th>
+            <th>Expiration</th>
+        </thead>
+        <tbody>
+            {% for token in tokens %}
+            <tr>
+                <td>{{ token.name }}</td>
+                <td>{{ token.token }}</td>
+                <td>{{ token.expiration }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    You do not currently have any tokens
+    {% endif %}
+{% endblock content %}

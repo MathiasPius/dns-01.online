@@ -1,0 +1,10 @@
+// Default zone for dns-01.online
+
+zone "dns-01.online" {
+        type master;
+        file "/etc/bind/zones/dns-01.online";
+
+        // Explicitly allow transfers from ns2 and ns3.
+        allow-transfer { 78.46.190.69; 94.130.187.16; };
+};
+

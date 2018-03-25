@@ -1,0 +1,6 @@
+{
+    "status": "ok",
+    "name": "{{ name }}",
+    "token": "{{ token }}",
+    "expires_at": "{{ expires_at }}"
+}

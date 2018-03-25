@@ -1,0 +1,8 @@
+zone "dns-01.online" {
+        type slave;
+        file "/etc/bind/zones/dns-01.online";
+
+        // Get all our records from ns1
+        masters { 94.130.180.20; };
+};
+
