@@ -10,7 +10,11 @@
 
         its secondary purpose is to provide an easy to use API endpoint for pushing TXT records to a nameserver, in order to answer dns-01 challenges as required by the new Lets Encrypt Wildcard certificate issuance process.<br /><br />
 
+        dns-01 validation requires that you modify the TXT records on the nameserver responsible for your domain in order to answer Lets Encrypt challenges. If you don't have the ability to make these changes programmatically, it defeats one of the primary purposes of Lets Encrypt, which is automation. What dns-01.online does, is let you setup a CNAME record <em>once</em>, and delegate all future TXT record updates to the dns-01.online nameservers, which you can interact with via a simple http API. This allows you to request and renew certificates from Lets Encrypt automatically, without having to manually change TXT records via your primary DNS provider.<br /><br />
+
         For information about how to use this for answering dns-01 challenges, see <a href="/usage">Usage</a><br />
-        For information about the project itself, the best source is probably the <a href="https://github.com/MathiasPius/dns-01.online">GitHub repository</a>
+        For information about the project itself, the best source is probably the <a href="https://github.com/MathiasPius/dns-01.online">GitHub repository</a><br /><br />
+
+        - Mathias Pius &lt;<a href="mailto:contact@pius.io">contact@pius.io</a>&gt;
     </p>
 {% endblock content %}
