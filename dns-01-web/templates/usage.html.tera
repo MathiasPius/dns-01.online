@@ -18,11 +18,11 @@
 {% endblock head %}
 {% block content %}
     <h1>Usage</h1>
-    <p>Using dns-01.online for dns-01 validation is <b>not</b> safe, and is not recommended for production systems. See "Security Concerns" section for more information.</p>
+    <p>Using dns-01.online for dns-01 validation is <b>not</b> safe, and is not recommended for production systems. See <a href="#security">Security Concerns</a> section for more information.</p>
 
     <h2>Step 0</h2>
     <p>
-        <a href="/register">Register an account</a> on this site to get an <a href="/overview">API key</a>. The API Key is only used for verifying access to the api endpoint, and to make sure that two different users can't write to the same record name (see Security section)<br />
+        <a href="/register">Register an account</a> on this site to get an <a href="/overview">API key</a>. The API Key is only used for verifying access to the api endpoint, and to make sure that two different users can't write to the same record name (see <a href="#security">Security Concerns</a>)<br />
 
     <h2>Step 1</h2>
     <p>
@@ -37,7 +37,7 @@
 
     <h2>Step 3</h2>
     <p>
-        Download the <a href="https://github.com/MathiasPius/dns-01.online/blob/master/put-token.sh">put-token.sh</a> script from the GitHub repository, or write your own<br /><br />
+        Download the <a href="https://github.com/MathiasPius/dns-01.online/blob/master/put-token.sh">put-token.sh</a> script from the GitHub repository, or write your own.<br /><br />
 
         Export your <a href="/overview">API key</a> as well as the unique string your CNAME record points to as environment variables, and then run your certbot command, specifying <code>put-token.sh</code> as the <code>--manual-auth-hook</code>, which will install the TXT record on the dns-01.online domain.</p>
 
@@ -66,7 +66,7 @@
         certbot should now have generated and answered the dns-01 challenge from LetsEncrypt, and put your new wildcard certificates in your /etc/letsencrypt/live folder. You're done!
     </p>
 
-    <h1>Security concerns</h1>
+    <h1 id="security">Security concerns</h1>
     <p>
         There are two big security problems with using dns-01.online for your dns-01 validation needs. Because of these, it is not recommended that dns-01.online is used for production or important systems, since you might be putting the trustworthiness of your domain at risk.<br />
 
