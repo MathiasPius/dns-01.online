@@ -74,7 +74,9 @@
         When creating the <code>_acme-challenge</code> CNAME record pointing to my domain, you are potentially giving me the ability to requisition certificates on behalf of your domain, since I could initiate my own certificate request using certbot, and simply plant the token on the dns-01.online nameserver, giving me a valid wildcard certificate for your domain.<br />
 
         <h3>Potential for third parties to generate valid certificates for your domains</h3>
-        If a third party found the CNAME record pointing to dns-01.online, as well as your API key, he could initiate a certificate request, and place his own challenge token into the .challenge.dns-01.online nameserver using the API, and thereby complete the challenge.<br />
+        If a third party found the CNAME record pointing to dns-01.online, as well as your API key, he could initiate a certificate request, and place his own challenge token into the .challenge.dns-01.online nameserver using the API, and thereby complete the challenge.<br /><br />
+
+        Once a TXT record has been created on the .challenge.dns-01.online domain, only the same API key that created the first one, will be able to write to it a second time. This is to prevent someone from finding out your CNAME record destination, and simply issuing an API call to that same record name. This means that you basically "own" the entry, and nobody else can take advantage of your _acme-challenge CNAME record, unless they have your API key as well.<br />
 
         <h3>Solutions</h3>
         The only real solution to these problems is to not rely on me to do the validation for you. You can either setup your own infrastructure, or simply clone this project and set it up yourself locally, blocking access from outside sources.
