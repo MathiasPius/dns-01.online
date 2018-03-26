@@ -71,7 +71,9 @@
         There are two big security problems with using dns-01.online for your dns-01 validation needs. Because of these, it is not recommended that dns-01.online is used for production or important systems, since you might be putting the trustworthiness of your domain at risk.<br />
 
         <h3>Entrusting <em>dns-01</em> with the means to generate valid certificates for your domains</h3>
-        When creating the <code>_acme-challenge</code> CNAME record pointing to my domain, you are potentially giving me the ability to requisition certificates on behalf of your domain, since I could initiate my own certificate request using certbot, and simply plant the token on the dns-01.online nameserver, giving me a valid wildcard certificate for your domain.<br />
+        When creating the <code>_acme-challenge</code> CNAME record pointing to my domain, you are potentially giving me the ability to requisition certificates on behalf of your domain, since I could initiate my own certificate request using certbot, and simply plant the token on the dns-01.online nameserver, giving me a valid wildcard certificate for your domain.<br /><br />
+
+        In order for me to abuse this, I would still need to know which domain you are authenticating. You can make this harder by using a randomly generated string as your record name, and not something obvious like "mydomain", but this is at best security by obscurity, and is still not safe for you!
 
         <h3>Potential for third parties to generate valid certificates for your domains</h3>
         If a third party found the CNAME record pointing to dns-01.online, as well as your API key, he could initiate a certificate request, and place his own challenge token into the .challenge.dns-01.online nameserver using the API, and thereby complete the challenge.<br /><br />
