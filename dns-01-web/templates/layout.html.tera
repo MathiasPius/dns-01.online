@@ -12,6 +12,11 @@
             font-weight: bold;
             width: 100%;
         }
+        input {
+            max-width: 300px!important;
+            min-width: 100px!important;
+            width: 50vw!important;
+        }
     </style>
 
     {% block head %}
