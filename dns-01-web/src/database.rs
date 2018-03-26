@@ -12,13 +12,21 @@ use mysql;
 use mysql::prelude::FromRow;
 
 
+fn get_variable(name: &'static str) -> String
+{
+    match env::var(name) {
+        Ok(value) => value.to_string(),
+        Err(err) => panic!("database username env-var '{}' not found: {}", name, err.to_string())
+    }
+}
+
 pub fn create_pool() -> mysql::Pool {
     let connstr = format!(
         "mysql://{}:{}@{}/{}",
-        env::var("DNS01_USERNAME").unwrap().as_str(),
-        env::var("DNS01_PASSWORD").unwrap().as_str(),
-        env::var("DNS01_HOSTNAME").unwrap().as_str(),
-        env::var("DNS01_TABLE").unwrap().as_str()
+        get_variable("DNS01_USERNAME"),
+        get_variable("DNS01_PASSWORD"),
+        get_variable("DNS01_HOSTNAME"),
+        get_variable("DNS01_TABLE")
     );
 
 	return mysql::Pool::new(connstr).unwrap();

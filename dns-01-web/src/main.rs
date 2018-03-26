@@ -64,6 +64,7 @@ fn main() {
         .mount("/", routes![
             static_files,
             index,
+            usage,
             about,
             auth::overview,
             auth::register,
@@ -83,6 +84,11 @@ fn main() {
 #[get("/")]
 fn index(user: Option<User>) -> Template {
     Template::render("index", build_template(&user, None))
+}
+
+#[get("/usage")]
+fn usage(user: Option<User>) -> Template {
+    Template::render("usage", build_template(&user, None))
 }
 
 #[get("/about")]
