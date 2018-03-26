@@ -1,8 +1,0 @@
-{% extends "layout" %}
-{% block title %}About{% endblock title %}
-{% block head %}
-    {{ super() }}
-{% endblock head %}
-{% block content %}
-    <h1>About</h1>
-{% endblock content %}

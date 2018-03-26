@@ -1,8 +1,16 @@
 {% extends "layout" %}
-{% block title %}Index{% endblock title %}
+{% block title %}What is{% endblock title %}
 {% block head %}
     {{ super() }}
 {% endblock head %}
 {% block content %}
-    <h1>Index</h1>
+    <h1>About dns-01.online</h1>
+    <p>
+        <b>Disclaimer</b>: This project is first and foremost an excuse to play around with <a href="http://rust-lang.org">Rust</a> and bind9 nameserver setups.<br /><br />
+
+        its secondary purpose is to provide an easy to use API endpoint for pushing TXT records to a nameserver, in order to answer dns-01 challenges as required by the new Lets Encrypt Wildcard certificate issuance process.<br /><br />
+
+        For information about how to use this for answering dns-01 challenges, see <a href="/usage">Usage</a><br />
+        For information about the project itself, the best source is probably the <a href="https://github.com/MathiasPius/dns-01.online">GitHub repository</a>
+    </p>
 {% endblock content %}

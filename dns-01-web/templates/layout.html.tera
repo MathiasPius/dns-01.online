@@ -15,9 +15,9 @@
 			<div class="container">
 				<a class="pagename current" href="/">dns-01.online</a>
                 {% if username %}
-                    <a href="/overview"><b>{{username}}</b></a>
+                    <a href="/overview"><b>API Key</b></a>
                 {% endif %}
-				<a href="/about">About</a>
+				<a href="/usage">Usage</a>
                 {% if username %}
                     <a href="/logout">Logout</a>
                 {% else %}
@@ -33,12 +33,5 @@
             {% block content %}{% endblock content %}
         </div>
     </main>
-    <footer style="position: absolute; bottom: 0; left: 20px;">
-        <small>
-            {% block footer %}
-            &copy; Copyright {{ year }} by Mathias Pius
-            {% endblock footer %}
-        </p>
-    </footer>
 </body>
 </html>

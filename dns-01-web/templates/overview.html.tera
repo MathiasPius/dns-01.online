@@ -4,8 +4,8 @@
     {{ super() }}
 {% endblock head %}
 {% block content %}
-    <h1>Overview for {{username}}</h1>
-    <label for="apikey">API Key</label>
+    <h1>API key for {{username}}</h1>
+    <label for="apikey">API Key</label>&nbsp;
     <input type="text" name="apikey" readonly value="{{ apikey }}" />
 
     {% if tokens %}
@@ -26,6 +26,6 @@
         </tbody>
     </table>
     {% else %}
-    You do not currently have any tokens
+
     {% endif %}
 {% endblock content %}

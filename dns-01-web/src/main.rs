@@ -65,7 +65,6 @@ fn main() {
             static_files,
             index,
             usage,
-            about,
             auth::overview,
             auth::register,
             auth::register_post,
@@ -89,11 +88,6 @@ fn index(user: Option<User>) -> Template {
 #[get("/usage")]
 fn usage(user: Option<User>) -> Template {
     Template::render("usage", build_template(&user, None))
-}
-
-#[get("/about")]
-fn about(user: Option<User>) -> Template {
-    Template::render("about", build_template(&user, None))
 }
 
 #[get("/static/<file..>")]
