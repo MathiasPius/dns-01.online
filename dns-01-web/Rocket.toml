@@ -8,7 +8,7 @@ limits = { forms = 32768 }
 
 [staging]
 address = "0.0.0.0"
-port = 55500
+port = 8000
 workers = 4
 log = "normal"
 #secret_key = [randomly generated at launch]
@@ -16,7 +16,7 @@ limits = { forms = 32768 }
 
 [production]
 address = "0.0.0.0"
-port = 55500
+port = 8000
 workers = 4
 log = "critical"
 #secret_key = [randomly generated at launch]
