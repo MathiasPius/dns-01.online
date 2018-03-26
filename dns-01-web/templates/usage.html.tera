@@ -45,13 +45,14 @@
             export DNS01_RECORD="<b>myuniquestring</b>"<br /><br />
 
             # Run certbot command to issue challenge<br/>
-            certbot-auto certonly --manual \<br />
+            certbot certonly --manual \<br />
                 &nbsp;&nbsp;-d *.<b>mydomain.tld</b> \<br />
                 &nbsp;&nbsp;--email <b>yourname@mydomain.tld</b> \<br />
-                &nbsp;&nbsp;--manual-auth-hook ~/put-token.sh \<br />
+                &nbsp;&nbsp;--manual-auth-hook <b>~/put-token.sh</b> \<br />
                 &nbsp;&nbsp;--agree-tos --manual-ip-logging-ok \<br />
-                &nbsp;&nbsp;--preferred-challenges dns<br />
-                &nbsp;&nbsp;--server https://acme-v02.api.letsencrypt.org/directory \
+                &nbsp;&nbsp;--preferred-challenges dns \<br />
+                &nbsp;&nbsp;--no-eff-email \<br />
+                &nbsp;&nbsp;--server https://acme-v02.api.letsencrypt.org/directory
         </code>
 
         The actual token that gets pushed to dns-01.online is grabbed from the <code>$CERTBOT_VALIDATION</code> environment variable that certbot exports prior to calling the hook.
