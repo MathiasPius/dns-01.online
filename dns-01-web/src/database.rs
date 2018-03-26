@@ -1,3 +1,6 @@
+extern crate regex;
+use self::regex::Regex;
+
 extern crate rand;
 use self::rand::Rng;
 
@@ -186,6 +189,11 @@ pub fn create_record(pool: &mysql::Pool, apikey: &String, name: &String, token: 
         return Err("ttl must be less than 24h (86400 seconds)");
     }
 
+    let re = Regex::new(r"[^a-zA-Z0-9]+").unwrap();
+    if re.is_match(name) {
+        return Err("record name contains invalid characters. It can only contain [a-zA-Z0-9]");
+    }   
+    
     // Check to make sure that if the token already exists, that we're the owners of it.
     match get_record(pool, &name) {
         Some(record) => {
