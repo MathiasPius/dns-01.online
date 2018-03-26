@@ -21,6 +21,7 @@ ns3             IN      A       94.130.187.16
 @               IN      A       94.130.180.20
 www             IN      A       94.130.180.20
 api             IN      A       94.130.180.20
+_acme-challenge	IN	CNAME	JzJwIAEBgX.challenge.dns-01.online.
 
 ; dns-01 validation TXT records
 {% for record in records %}
