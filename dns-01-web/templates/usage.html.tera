@@ -35,8 +35,10 @@
         If you are using a third party DNS provider (and you probably are if you need this service), you will have to create the CNAME record using whatever methods they have provided, most likely a web interface.
     </p>
 
-    <h2>Step 2</h2>
+    <h2>Step 3</h2>
     <p>
+        Download the <a href="https://github.com/MathiasPius/dns-01.online/blob/master/put-token.sh">put-token.sh</a> script from the GitHub repository, or write your own<br /><br />
+
         Export your <a href="/overview">API key</a> as well as the unique string your CNAME record points to as environment variables, and then run your certbot command, specifying <code>put-token.sh</code> as the <code>--manual-auth-hook</code>, which will install the TXT record on the dns-01.online domain.</p>
 
         <code class="codeblock">
