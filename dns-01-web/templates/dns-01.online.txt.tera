@@ -12,6 +12,9 @@ dns-01.online.    IN      NS      ns1.dns-01.online.
 dns-01.online.    IN      NS      ns2.dns-01.online.
 dns-01.online.    IN      NS      ns3.dns-01.online.
 
+; CAA records
+dns-01.online. CAA 128 issue "letsencrypt.org"
+
 ; A records for name servers
 ns1             IN      A       94.130.180.20
 ns2             IN      A       78.46.190.69
