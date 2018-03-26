@@ -26,7 +26,7 @@ pub fn create_pool() -> mysql::Pool {
         get_variable("DNS01_USERNAME"),
         get_variable("DNS01_PASSWORD"),
         get_variable("DNS01_HOSTNAME"),
-        get_variable("DNS01_TABLE")
+        get_variable("DNS01_DATABASE")
     );
 
 	return mysql::Pool::new(connstr).unwrap();
