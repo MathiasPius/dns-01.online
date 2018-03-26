@@ -47,6 +47,7 @@
             # Run certbot command to issue challenge<br/>
             certbot certonly --manual \<br />
                 &nbsp;&nbsp;-d *.<b>mydomain.tld</b> \<br />
+                &nbsp;&nbsp;-d <b>mydomain.tld</b> \<br />
                 &nbsp;&nbsp;--email <b>yourname@mydomain.tld</b> \<br />
                 &nbsp;&nbsp;--manual-auth-hook <b>~/put-token.sh</b> \<br />
                 &nbsp;&nbsp;--agree-tos --manual-ip-logging-ok \<br />
