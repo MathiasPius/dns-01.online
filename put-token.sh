@@ -10,7 +10,7 @@ curl "https://api.dns-01.online/record" \
 
 
 # If we already have a TXT record on dns-01.online, LetsEncrypt might poll that
-# before we get to update it, and we'll fail the challenge for using a statle token.
+# before we get to update it, and we'll fail the challenge for using a stale token.
 # By sleeping for a little while, we can be sure dns-01.online has had time to
 # publish our new token
 sleep 10
