@@ -1,5 +1,5 @@
 extern crate rocket;
-use rocket::State;
+use rocket::{State};
 use rocket::http::{Cookie, Cookies};
 use rocket::request::{Form, FlashMessage};
 use rocket::response::{Redirect, Flash};
@@ -22,10 +22,11 @@ pub struct RegisterData {
 }
 
 #[get("/overview")]
-pub fn overview(user: Option<User>) -> Template {
-    
-
-    Template::render("overview", build_template(&user, None))
+pub fn overview(user: Option<User>) -> Result<Template, Flash<Redirect>> {
+    match user {
+        Some(user) => Ok(Template::render("overview", build_template(&Some(user), None))),
+        None => Err(Flash::error(Redirect::to("/login"), "You need to login or register to get an API key"))
+    }
 }
 
 #[get("/register")]
@@ -64,7 +65,7 @@ pub fn login(user: Option<User>, flash: Option<FlashMessage>) -> Template {
             context.insert("flash", msg.msg().to_string());
     }
 
-    Template::render("login", build_template(&user, None))
+    Template::render("login", build_template(&user, Some(context)))
 }
 
 #[post("/login", data = "<user>")]

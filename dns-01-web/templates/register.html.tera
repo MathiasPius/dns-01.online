@@ -5,9 +5,6 @@
 {% endblock head %}
 {% block content %}
     <h1>Register</h1>
-    {% if flash %}
-         <strong>{{ flash }}</strong><br /><br />
-    {% endif %}
     <form method="post" action="">
         <label for="username">Username</label>
         <input type="text" value="" name="username" placeholder="username">

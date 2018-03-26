@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="/static/min.css" rel="stylesheet" type="text/css">
 
+    <style type="text/css">
+        div.flash {
+            background-color: orange;
+            padding: 20px;
+            font-weight: bold;
+            width: 100%;
+        }
+    </style>
+
     {% block head %}
     <title>{% block title %}{% endblock title %} - dns-01.online</title>
     {% endblock head %}
 </head>
 <body>
-    <header class="sticky">
+    <header>
         <nav class="nav">
 			<div class="container">
 				<a class="pagename current" href="/">dns-01.online</a>
@@ -30,6 +39,9 @@
     
     <main>
         <div class="container" id="content">
+            {% if flash %}
+                 <div class="flash">{{ flash }}</div>
+            {% endif %}
             {% block content %}{% endblock content %}
         </div>
     </main>
