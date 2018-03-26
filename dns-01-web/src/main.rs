@@ -36,16 +36,22 @@ pub fn build_template(
         &None => "".to_string()
     };
 
+    let apikey = match user {
+        &Some(ref usr) => usr.apikey.clone(),
+        &None => "".to_string()
+    };
+
     match context {
         None => {
             let mut ctx = HashMap::new();
             ctx.insert("year", year);
             ctx.insert("username", username);
+            ctx.insert("apikey", apikey);
             ctx
         },
         Some(mut ctx) => {
             ctx.insert("year", year);
-            ctx.insert("username", username);
+            ctx.insert("apikey", apikey);
             ctx
         }
     }
