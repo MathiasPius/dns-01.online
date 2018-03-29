@@ -31,20 +31,21 @@
 -->
     <header>
         <nav class="nav">
-			<div class="container">
-				<a class="pagename current" href="/">dns-01.online</a>
-                {% if username %}
-                    <a href="/overview"><b>API Key</b></a>
-                {% endif %}
-				<a href="/usage">Usage</a>
-                {% if username %}
-                    <a href="/logout">Logout</a>
-                {% else %}
-                    <a href="/register">Register</a>
-                    <a href="/login">Login</a>
-                {% endif %}
-			</div>
-		</nav>
+		<div class="container">
+			<a class="pagename current" href="/">dns-01.online</a>
+	                {% if username %}
+		            <a href="/overview"><b>API Key</b></a>
+			{% endif %}
+			<a href="/usage">Usage</a>
+			{% if username %}
+				<a href="/logout">Logout</a>
+			{% else %}
+				<a href="/register">Register</a>
+				<a href="/login">Login</a>
+			{% endif %}
+			<a href="https://github.com/MathiasPius/dns-01.online"><strong>Fork me on GitHub!</strong></a>
+		</div>
+	</nav>
     <header>
     
     <main>
